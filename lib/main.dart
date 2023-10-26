@@ -1,4 +1,6 @@
-import 'package:ecomerce_app/widgets/custom_appbar.dart';
+import 'package:ecomerce_app/config/app_router.dart';
+import 'package:ecomerce_app/config/theme.dart';
+import 'package:ecomerce_app/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,24 +15,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Zero TO Unicorn',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const HomeScreen(),
+      theme: theme(),
+      onGenerateRoute: AppRouter.onGenerateRoute,
+      initialRoute: HomeScreen.routeName,
+      home:  const HomeScreen(),
     );
   }
 }
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return  const Scaffold(
-      appBar: CustomAppBar(),
-      bottomNavigationBar: BottomAppBar(),
-    );
-  }
-}
 
 

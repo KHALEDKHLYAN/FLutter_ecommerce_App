@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-  class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final String title;
   const CustomAppBar({
     super.key,
+    required this.title,
   });
 
   @override
@@ -16,21 +18,24 @@ import 'package:flutter/material.dart';
           horizontal: 20,
           vertical: 10,
         ),
-        child: const Text(
-          'Zero To Unicorn',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 24,
-            fontFamily: 'Avenir',
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        child: Text(title,
+            // 'Zero To Unicorn',
+            style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                  color: Colors.white,
+                )),
       ),
       iconTheme: const IconThemeData(color: Colors.black),
-      actions: [IconButton(onPressed: (){}, icon: const Icon(Icons.favorite))],
+      actions: [
+        IconButton(
+          icon: const Icon(Icons.favorite),
+          onPressed: () {
+            Navigator.pushNamed(context, '/wishlist');
+          },
+        )
+      ],
     );
   }
-  
+
   @override
   Size get preferredSize => const Size.fromHeight(50.0);
 }
