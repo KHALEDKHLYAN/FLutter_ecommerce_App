@@ -5,6 +5,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecomerce_app/widgets/hero_carsouselcard.dart';
 import 'package:flutter/material.dart';
 
+import '../../widgets/section_tile.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
   static const String routeName = '/';
@@ -21,20 +23,25 @@ class HomeScreen extends StatelessWidget {
       appBar: const CustomAppBar(title: 'Zero To Unicorn'),
       bottomNavigationBar: const CustomNavBar(),
       // ignore: avoid_unnecessary_containers
-      body: Container(
-        child: CarouselSlider(
-          options: CarouselOptions(
-            autoPlay: true,
-            aspectRatio: 1.5,
-            viewportFraction: 0.9,
-            enlargeStrategy: CenterPageEnlargeStrategy.height,
-            enlargeCenterPage: true,
+      body: Column(
+        children: [
+          CarouselSlider(
+            options: CarouselOptions(
+              autoPlay: true,
+              aspectRatio: 1.5,
+              viewportFraction: 0.9,
+              enlargeStrategy: CenterPageEnlargeStrategy.height,
+              enlargeCenterPage: true,
+            ),
+            items: Category.categories
+                .map((category) => HeroCarsouselcard(category: category))
+                .toList(),
           ),
-          items: Category.categories
-              .map((category) => HeroCarsouselcard(category: category))
-              .toList(),
-        ),
+          const SectionTile(title : 'RECOMMENDED'),
+        ],
       ),
     );
   }
 }
+
+
