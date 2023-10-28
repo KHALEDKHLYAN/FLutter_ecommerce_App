@@ -27,26 +27,35 @@ class HomeScreen extends StatelessWidget {
       appBar: const CustomAppBar(title: 'Zero To Unicorn'),
       bottomNavigationBar: const CustomNavBar(),
       // ignore: avoid_unnecessary_containers
-      body: Column(
-        children: [
-          CarouselSlider(
-            options: CarouselOptions(
-              autoPlay: true,
-              aspectRatio: 1.5,
-              viewportFraction: 0.9,
-              enlargeStrategy: CenterPageEnlargeStrategy.height,
-              enlargeCenterPage: true,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            CarouselSlider(
+              options: CarouselOptions(
+                autoPlay: true,
+                aspectRatio: 1.5,
+                viewportFraction: 0.9,
+                enlargeStrategy: CenterPageEnlargeStrategy.height,
+                enlargeCenterPage: true,
+              ),
+              items: Category.categories
+                  .map((category) => HeroCarsouselcard(category: category))
+                  .toList(),
             ),
-            items: Category.categories
-                .map((category) => HeroCarsouselcard(category: category))
-                .toList(),
-          ),
-          const SectionTile(title: 'RECOMMENDED'),
-          // ProductCard(
-          //   product: Product.products[0],
-          // )
-          ProductCarsousel(products: Product.products)
-        ],
+            const SectionTile(title: 'RECOMMENDED'),
+            ProductCarsousel(
+              products: Product.products
+                  .where((product) => product.isRecommended)
+                  .toList(),
+            ),
+            const SectionTile(title: 'MOST POPULAR'),
+            ProductCarsousel(
+              products: Product.products
+                  .where((product) => product.isPopular)
+                  .toList(),
+            ),
+          ],
+        ),
       ),
     );
   }
