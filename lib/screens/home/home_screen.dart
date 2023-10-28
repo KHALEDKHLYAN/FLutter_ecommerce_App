@@ -3,6 +3,8 @@ import 'package:ecomerce_app/widgets/custom_appbar.dart';
 import 'package:ecomerce_app/widgets/custom_navbar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecomerce_app/widgets/hero_carsouselcard.dart';
+// import 'package:ecomerce_app/widgets/product_card.dart';
+import 'package:ecomerce_app/widgets/product_carsouselcard.dart';
 import 'package:flutter/material.dart';
 // ignore: unnecessary_import
 import 'package:ecomerce_app/models/product_models.dart';
@@ -39,23 +41,13 @@ class HomeScreen extends StatelessWidget {
                 .map((category) => HeroCarsouselcard(category: category))
                 .toList(),
           ),
-          const SectionTile(title : 'RECOMMENDED'),
-          Stack(
-            children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width/2.5,
-                height: 150,
-                child: Image.network(Product.products[0].imageUrl,
-                fit: BoxFit.cover,
-                ),
-              ),
-
-            ],
-          )
+          const SectionTile(title: 'RECOMMENDED'),
+          // ProductCard(
+          //   product: Product.products[0],
+          // )
+          ProductCarsousel(products: Product.products)
         ],
       ),
     );
   }
 }
-
-
