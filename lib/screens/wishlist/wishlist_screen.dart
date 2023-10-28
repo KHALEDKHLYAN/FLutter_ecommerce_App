@@ -8,13 +8,13 @@ class WIshlistScreen extends StatelessWidget {
 
   static Route route(){
     return MaterialPageRoute(
-      settings: RouteSettings(name: routeName),
-      builder: (_) => WIshlistScreen());
+      settings: const RouteSettings(name: routeName),
+      builder: (_) => const WIshlistScreen());
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const CustomAppBar(title: 'WishList'),
+    return const Scaffold(
+      appBar: CustomAppBar(title: 'WishList'),
       bottomNavigationBar: CustomNavBar(),
     );
   }

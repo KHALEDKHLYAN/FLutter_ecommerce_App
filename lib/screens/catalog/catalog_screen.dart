@@ -9,11 +9,11 @@ class CatalogScreen extends StatelessWidget {
   static Route route(){
     return MaterialPageRoute(
       settings: const RouteSettings(name: routeName),
-      builder: (_) => CatalogScreen());
+      builder: (_) => const CatalogScreen());
   }
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return  const Scaffold(
       appBar:  CustomAppBar(title: 'Catalog'),
       bottomNavigationBar: CustomNavBar(),
     );

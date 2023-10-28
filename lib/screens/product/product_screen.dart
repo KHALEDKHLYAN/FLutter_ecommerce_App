@@ -8,12 +8,12 @@ class ProductScreen extends StatelessWidget {
 
   static Route route(){
     return MaterialPageRoute(
-      settings: RouteSettings(name: routeName),
-      builder: (_) => ProductScreen());
+      settings: const RouteSettings(name: routeName),
+      builder: (_) => const ProductScreen());
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       appBar:  CustomAppBar(title: 'Product'),
       bottomNavigationBar: CustomNavBar(),
     );

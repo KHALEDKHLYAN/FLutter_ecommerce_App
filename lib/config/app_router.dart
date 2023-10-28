@@ -1,8 +1,6 @@
 // ignore_for_file: unreachable_switch_case
 
-import 'package:ecomerce_app/screens/product/product_screen.dart';
 import 'package:ecomerce_app/screens/screens.dart';
-import 'package:ecomerce_app/screens/wishlist/wishlist_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
