@@ -1,5 +1,6 @@
 // ignore_for_file: unreachable_switch_case
 
+import 'package:ecomerce_app/models/models.dart';
 import 'package:ecomerce_app/screens/screens.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class AppRouter {
         return CartScreen.route();
 
       case CatalogScreen.routeName:
-        return CatalogScreen.route();
+        return CatalogScreen.route(category: settings.arguments as Category);
       
       case WIshlistScreen.routeName:
         return WIshlistScreen.route();
