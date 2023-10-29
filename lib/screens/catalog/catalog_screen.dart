@@ -1,7 +1,5 @@
 import 'package:ecomerce_app/models/category_models.dart';
 import 'package:ecomerce_app/models/product_models.dart';
-import 'package:ecomerce_app/widgets/custom_appbar.dart';
-import 'package:ecomerce_app/widgets/custom_navbar.dart';
 import 'package:ecomerce_app/widgets/widget.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +19,9 @@ class CatalogScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Product> categoryProducts = Product.products
+        .where((product) => product.category == category.name)
+        .toList();
     return Scaffold(
       appBar: CustomAppBar(title: category.name),
       bottomNavigationBar: const CustomNavBar(),
@@ -30,11 +31,11 @@ class CatalogScreen extends StatelessWidget {
           crossAxisCount: 2,
           childAspectRatio: 1.15,
         ),
-        itemCount: 3,
+        itemCount: categoryProducts.length,
         itemBuilder: (BuildContext context, int index) {
           return Center(
             child: ProductCard(
-              product: Product.products[0],
+              product: categoryProducts[index],
               widthFactor: 2.2,
             ),
           );
