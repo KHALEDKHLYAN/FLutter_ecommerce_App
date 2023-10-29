@@ -12,13 +12,13 @@ class ProductCarsousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 130.0,
+      height: 165.0,
       child: ListView.builder(
           shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
           padding: const EdgeInsets.symmetric(
               horizontal: 20.0, 
               vertical: 10.0,),
-          scrollDirection: Axis.horizontal,
           itemCount: products.length,
           itemBuilder: (context, index) {
             return Padding(
