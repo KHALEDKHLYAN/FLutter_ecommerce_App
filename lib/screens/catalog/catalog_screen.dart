@@ -21,19 +21,25 @@ class CatalogScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: CustomAppBar(title: category.name),
       bottomNavigationBar: const CustomNavBar(),
       body: GridView.builder(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 1.15,
-              ), 
-        itemCount: 3,
-        itemBuilder: (BuildContext context, int index){
-          return ProductCard(product: Product.products[0]);
-        }
+          crossAxisCount: 2,
+          childAspectRatio: 1.15,
         ),
+        itemCount: 3,
+        itemBuilder: (BuildContext context, int index) {
+          return Center(
+            child: ProductCard(
+              product: Product.products[0],
+              widthFactor: 2.2,
+            ),
+          );
+        },
+      ),
     );
   }
 }

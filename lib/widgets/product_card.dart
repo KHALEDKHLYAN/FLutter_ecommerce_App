@@ -3,14 +3,19 @@ import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
+  final double widthFactor;
 
   const ProductCard({
     super.key,
     required this.product,
+    this.widthFactor = 2.0,
   });
 
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
+    final double widthValue = MediaQuery.of(context).size.width/widthFactor;
+    
     return Stack(
       children: [
         SizedBox(
@@ -70,7 +75,10 @@ class ProductCard extends StatelessWidget {
                   Expanded(
                     child: IconButton(
                         onPressed: () {},
-                        icon: const Icon(Icons.add_circle, color: Colors.white,)),
+                        icon: const Icon(
+                          Icons.add_circle,
+                          color: Colors.white,
+                        )),
                   )
                 ],
               ),
