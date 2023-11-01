@@ -25,7 +25,7 @@ class AppRouter {
         return WIshlistScreen.route();
       
       case ProductScreen.routeName:
-        return ProductScreen.route();
+        return ProductScreen.route(product: settings.arguments as Product);
 
       default:
         return _errorRoute();
